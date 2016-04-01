@@ -1,0 +1,218 @@
+############################################################################################################################################
+##### SECTION 1
+#####
+##### Create a new Project and fix dependencies.
+##### End of Section 1: 
+#####              A new LARAVEL Project should be created and Home screen can be viewed.
+############################################################################################################################################
+
+1. Create a new Laravel App Project.
+
+composer create-project laravel/laravel VisaApp
+
+The above command will create bunch of files ready to go.
+
+2. Since Laravel 5.2 -> Need to add modules ourselves and do imports on controller classes. This is for speeding up Laravel Framework.
+
+A) Add to composer.json:
+    "illuminate/html": "5.*"
+Run:
+    composer update
+
+B) Add to the app.php providers array:
+    'Illuminate\Html\HtmlServiceProvider',
+Add to the app.php aliases array:
+    'Html'      => 'Illuminate\Html\HtmlFacade',
+    'Form'      => 'Illuminate\Html\FormFacade',
+Test is out:
+    {!! Form::open([]) !!}
+
+    {!! Form::text('name', @$name) !!}
+
+    {!! Form::password('password') !!}
+
+    {!! Form::submit('Send') !!}
+
+    {!! Form::close() !!}
+You are done!
+
+C) Call to undefined method Illuminate\Foundation\Application::bindShared():
+Change bindShared() to singleton().
+
+############################################################################################################################################
+##### SECTION 2
+#####
+##### Enable Laravel Framework Default Authentication in the current project.
+##### 
+##### End of Section 2: 
+#####              User tables are created in database. User should be able to create new users, login & logout using new users.
+############################################################################################################################################
+
+1. Run the following command to generate all of the authentication view and controller files.
+
+php artisan make:auth
+
+Result:
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/auth/login.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/auth/register.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/auth/passwords/email.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/auth/passwords/reset.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/auth/emails/password.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/layouts/app.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/home.blade.php
+Created View: /Users/lakshminarasimhan/Documents/Vijay/Projects/Laravel/VisaApp/resources/views/welcome.blade.php
+Installed HomeController.
+Updated Routes File.
+Authentication scaffolding generated successfully!
+
+
+2. SETUP DATABASE:
+To get our authentication working, we will need to have a database and users to login with.
+
+A) Create a new database in Mysql.
+
+create database VisaApp;
+
+B) Create a new user in MySql and grant permissions to VisaApp Database.
+
+create user 'VisaAppUser'@'localhost' IDENTIFIED BY 'VisaAppUser';
+GRANT ALL ON VisaApp.* TO 'VisaAppUser'@'localhost';
+
+C) Update the user credentials and database name on config/database.php and on .env files.
+
+D) Create a migration script to create the migration script for User Table. This will create the migration file under database/migrations folder.
+
+php artisan make:migration create_users_table --create=users
+
+Result: Created Migration: 2016_03_22_213000_create_users_table
+
+E) Edit the migration script to include all needed files on User Table.
+
+$table->increments('id');
+$table->string('name');
+$table->string('email')->unique();
+$table->string('password');
+$table->rememberToken();
+$table->timestamps();
+
+F) Once the configurations are setup, run the below command to create the tables in database.
+
+php artisan migrate
+
+Result:
+Migration table created successfully.
+Migrated: 2014_10_12_100000_create_password_resets_table
+Migrated: 2016_03_22_213000_create_users_table
+
+G) Verify if tables are created in the database.
+
+mysql> show tables;
++-------------------+
+| Tables_in_visaapp |
++-------------------+
+| migrations        |
+| password_resets   |
+| users             |
++-------------------+
+3 rows in set (0.01 sec)
+
+############################################################################################################################################
+##### SECTION 3
+#####
+##### Setup Static tables containing VISA Categories.
+##### 
+##### End of Section 3: 
+############################################################################################################################################
+
+1) Create migration scripts for the new tables.
+
+php artisan make:migration create_countries_table --create=countries
+php artisan make:migration create_visa_categories_table --create=visa_categories
+php artisan make:migration create_dependents_info_table --create=dependents_info
+php artisan make:migration create_dependents_category_table --create=dependents_category
+
+2) Create the seed file with below command and update the run() method to insert new records into database.
+
+php artisan make:seeder RelationshipCategory
+php artisan make:seeder ContriesSeeder
+php artisan make:seeder VisaCategoriesSeeder
+
+3) Run the below command to seed the data into database.
+
+php artisan db:seed
+
+4) The above command would result in below error if Model classes are not created. Follow the next set of steps to create the Model class.
+                                                           
+  [Symfony\Component\Debug\Exception\FatalErrorException]  
+  Class 'Model' not found   
+
+5) Create the model objects.
+
+php artisan make:model Relationship --migration (if migration script is also needed)
+php artisan make:model Countries
+php artisan make:model VisaCategory
+
+6) Re run the db seeder to create the new records.
+
+NOTE: Make sure DatabaseSeeder.php is updated with the seeder classes that are needed to run to ensure duplicates are not inserted.
+
+############################################################################################################################################
+##### SECTION 4
+#####
+##### Create controllers and views to display dependents info and add new dependents.
+##### Also add Validation to existing screen. 
+##### 
+##### End of Section 4: 
+############################################################################################################################################
+
+1) Create Dependents controller using below command.
+
+php artisan make:controller DependentsController
+
+2) Setup methods to display list of dependents, show page to add new dependent & process add new dependent request.
+
+3) To enable SQL Query logging in Laravel, Add below piece of listener under boot() method in AppServiceProvider.php
+
+DB::listen(function($query) {
+            // $query->sql
+            // $query->bindings
+            // $query->time
+            Log::info($query->sql);
+            Log::info($query->bindings);
+        });
+
+4) To log array data in laravel
+
+Log::info(print_r($input, true));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

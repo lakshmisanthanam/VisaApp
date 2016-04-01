@@ -1,0 +1,25 @@
+.deps-row {
+  display:table;
+  width: 100%;
+}
+
+.deps-row-value {
+  display: table-cell;
+  text-align: center;
+  vertical-align:middle;
+  position: relative;
+  width: 400px;
+
+  /*line-height: 13em; */
+  border: 1px solid;
+}
+
+.depsCkbox {
+	width: 110px;
+	background: #F0E8E7;
+}
+
+.addDeps {
+	right: 10px;
+	text-align: right;
+}
