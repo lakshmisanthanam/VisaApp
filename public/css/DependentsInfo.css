@@ -8,14 +8,17 @@
   text-align: center;
   vertical-align:middle;
   position: relative;
-  width: 400px;
-
+  width: 150px;
+  height: 40px;
+  word-break: break-all;
   /*line-height: 13em; */
   border: 1px solid;
 }
 
+
+
 .depsCkbox {
-	width: 110px;
+	width: 80px;
 	background: #F0E8E7;
 }
 

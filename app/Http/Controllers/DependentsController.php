@@ -65,15 +65,16 @@ class DependentsController extends Controller
 
     public function addDependent() {
     	$user_id = Auth::user()->id;
-    	$input = Input::only('name','relationshipType'); 
-    	$name = $input['name'];
+    	$input = Input::all(); 
     	$relationshipType = $input['relationshipType'];
 
     	$relationship = Relationship::where('relation_type', $relationshipType)->first();
 
     	$dependent = new DependentsInfo;
     	$dependent->user_id = $user_id;
-    	$dependent->dependent_name = $name;
+    	$dependent->first_name = $input['first_name'];
+    	$dependent->last_name = $input['last_name'];
+    	$dependent->date_of_birth = $input['date_of_birth'];
     	$dependent->dependent_cat_id = $relationship->id;
     	$dependent->save();
 

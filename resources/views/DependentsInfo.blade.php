@@ -23,7 +23,9 @@
                     		{!! csrf_field() !!}
 	                    	<div class="deps-row">
 	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="dependents_All" id="selectall" value="All"> Select All</div>
-	                			<div class="deps-row-value">Name</div>
+	                			<div class="deps-row-value">First Name</div>
+	                			<div class="deps-row-value">Last Name</div>
+	                			<div class="deps-row-value">Date Of Birth</div>
 	                			<div class="deps-row-value">Relationship</div>
 	                		</div>
 	                    	@foreach ($dependents as $dependent)
@@ -32,7 +34,9 @@
 	                    			<div class="deps-row-value depsCkbox">
 	                    				{!! Form::checkbox('dependents_grp[]', $dependent -> id, null, array('class' => 'dep-checkbox')) !!}
 	                    			</div>
-	                    			<div class="deps-row-value">{{ $dependent-> dependent_name }}</div>
+	                    			<div class="deps-row-value">{{ $dependent-> first_name }}</div>
+	                    			<div class="deps-row-value">{{ $dependent-> last_name }}</div>
+	                    			<div class="deps-row-value">{{ $dependent-> date_of_birth }}</div>
 	                    			<div class="deps-row-value">{{ $dependent-> relationship -> relation_description }}</div>
 	                    		</div>
 	                    	@endforeach

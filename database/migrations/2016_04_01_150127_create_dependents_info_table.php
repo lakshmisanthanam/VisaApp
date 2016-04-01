@@ -15,7 +15,9 @@ class CreateDependentsInfoTable extends Migration
         Schema::create('dependents_info', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('dependent_name');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('date_of_birth');
             $table->integer('dependent_cat_id')->unsigned();
             $table->timestamps();
             $table->foreign('user_id')
