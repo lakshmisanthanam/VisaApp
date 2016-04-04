@@ -185,9 +185,20 @@ DB::listen(function($query) {
 
 Log::info(print_r($input, true));
 
+############################################################################################################################################
+##### SECTION 5
+#####
+##### FAQ
+##### 
+##### End of Section 5: 
+############################################################################################################################################
 
 
+1. What to do when php artisan migrate says - Nothing to migrate.
 
+Try php artisan migrate:refresh or migrate:reset and then do the migration again.
+
+If it still complain, go to "migrations" table and delete the entry for the migration file that you want to run.
 
 
 

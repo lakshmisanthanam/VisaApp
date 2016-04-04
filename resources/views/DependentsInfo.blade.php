@@ -23,10 +23,10 @@
                     		{!! csrf_field() !!}
 	                    	<div class="deps-row">
 	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="dependents_All" id="selectall" value="All"> Select All</div>
-	                			<div class="deps-row-value">First Name</div>
-	                			<div class="deps-row-value">Last Name</div>
-	                			<div class="deps-row-value">Date Of Birth</div>
-	                			<div class="deps-row-value">Relationship</div>
+	                			<div class="deps-row-value depsHeader">First Name</div>
+	                			<div class="deps-row-value depsHeader">Last Name</div>
+	                			<div class="deps-row-value depsHeader">Date Of Birth</div>
+	                			<div class="deps-row-value depsHeader">Relationship</div>
 	                		</div>
 	                    	@foreach ($dependents as $dependent)
 	                    		<div class="deps-row">

@@ -8,11 +8,13 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Welcome to Visa App!
-                    <br/>
-                    <a href="{{ url('/dependentsInfo') }}">Dependents Info</a>
-                    <br/>
-                    <a href="{{ url('/visaInfo') }}">VISA Info</a>
+                    <div class="addDeps">
+                        <a href="{{ url('/addDependent') }}">Add VISA Info</a>
+                    </div>
+                    @if (count($visaInfos) == 0)
+                        There are no VISA details available for you!
+                    @endif
+
                 </div>
             </div>
         </div>

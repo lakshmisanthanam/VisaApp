@@ -33,6 +33,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/addDependent', 'DependentsController@addDependent'); 
 
 	Route::post('/deleteDependents', 'DependentsController@deleteDependents');    
+
+	Route::get('/visaInfo', 'VisaInfoController@visaInfo');
 });
 
 Event::listen('illuminate.query', function($query)
