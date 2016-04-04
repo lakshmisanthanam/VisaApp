@@ -1,5 +1,11 @@
 @extends('layouts.app')
 
+
+{!! Html::script( asset('js/framework/jquery-1.12.2.min.js') ) !!}
+{!! Html::script( asset('js/framework/jquery-ui.min.js') ) !!}
+{!! Html::script( asset('js/DependentsInfo.js') ) !!}
+{!! Html::style( asset('css/framework/jquery-ui.css') ) !!}
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -43,7 +49,7 @@
                             <label class="col-md-4 control-label">Date Of Birth</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="date_of_birth" value="">
+                                <input type="text" class="form-control" name="date_of_birth" value="" id="datepicker">
 
                                 @if ($errors->has('date_of_birth'))
                                     <span class="help-block">
