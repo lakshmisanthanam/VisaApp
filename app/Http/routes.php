@@ -35,6 +35,8 @@ Route::group(['middleware' => 'web'], function () {
 	Route::post('/deleteDependents', 'DependentsController@deleteDependents');    
 
 	Route::get('/visaInfo', 'VisaInfoController@visaInfo');
+
+    Route::get('/addVisaInfo', 'VisaInfoController@showAddVisaInfo');
 });
 
 Event::listen('illuminate.query', function($query)

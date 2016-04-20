@@ -74,6 +74,22 @@
 
     @yield('content')
 
+     <script charset="utf-8" type="text/javascript">
+amzn_assoc_ad_type = "responsive_search_widget";
+amzn_assoc_tracking_id = "wwweasyproduc-21";
+amzn_assoc_marketplace = "amazon";
+amzn_assoc_region = "IN";
+amzn_assoc_placement = "";
+amzn_assoc_search_type = "search_widget";
+amzn_assoc_width = "auto";
+amzn_assoc_height = "auto";
+amzn_assoc_default_search_category = "";
+amzn_assoc_default_search_key = "";
+amzn_assoc_theme = "light";
+amzn_assoc_bg_color = "FFFFFF";
+</script>
+<script src="//z-in.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&Operation=GetScript&ID=OneJS&WS=1&MarketPlace=IN"></script>
+
     <!-- JavaScripts -->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
