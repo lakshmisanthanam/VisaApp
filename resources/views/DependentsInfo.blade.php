@@ -6,20 +6,14 @@
 {!! Html::script( asset('js/DependentsInfo.js') ) !!}
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Dependents Info</div>
 
-                <div class="panel-body">
                 	<div class="addDeps">
                     	<a href="{{ url('/addDependent') }}">Add Dependent</a>
                     </div>
                     @if (count($dependents) == 0)
                     	There are no dependents under you!
                     @else
-                    	<form class="form-horizontal" role="form" method="POST" action="{{ url('/deleteDependents') }}">
+                    	<form class="form-horizontal-deps" role="form" method="POST" action="{{ url('/deleteDependents') }}">
                     		{!! csrf_field() !!}
 	                    	<div class="deps-row">
 	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="dependents_All" id="selectall" value="All"> Select All</div>
@@ -46,9 +40,4 @@
                             </button>
                     @endif
 
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection

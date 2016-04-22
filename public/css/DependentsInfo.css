@@ -32,3 +32,18 @@
 	background: #9AE9D6;
 	font-weight: bold;
 }
+
+.form-horizontal-deps {
+	border: 1px;
+	border-style: groove;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+	margin: 5px 15px 15px 15px;
+	background-color: #FFF;
+	min-height: 600px;
+	padding-top: 15px;
+	padding-left: 1%;
+	padding-right: 1%;
+}

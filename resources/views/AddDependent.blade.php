@@ -7,13 +7,7 @@
 {!! Html::style( asset('css/framework/jquery-ui.css') ) !!}
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">Add Dependent Information</div>
 
-                <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/addDependent') }}">
                         {!! csrf_field() !!}
 
@@ -75,9 +69,4 @@
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
