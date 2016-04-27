@@ -9,6 +9,7 @@
 @section('content')
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/addDependent') }}">
+                    	<h2>Add Dependent Information</h2>
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">

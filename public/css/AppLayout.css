@@ -51,17 +51,24 @@ body {
 .nav-menu-list li {
 	height: 50px;
 	font-size: 20px;
-	padding-left: 50px;
+	/**padding-left: 50px;*/
+	text-align: center;
 }
 
 .nav-menu-list li:hover {
 	font-size: 20px;
-	background-color: #a85217;
+	background-color: #f5f5f5;
 }
 
 .nav-menu-list a {
 	color: #FFFFFF;
 	text-decoration: none;
+	width: 90%;
+	height: 100%;
+	padding: 10px 15px;
+	margin-bottom: -1px;
+	position: relative;
+	display: block;
 }
 
 .nav-menu-list a:hover {
@@ -514,7 +521,9 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	background-color: #FFF;
 	min-height: 600px;
 	padding-top: 15px;
-	padding-left: 20%;
+	/**padding-left: 20%;
+	text-align: center;*/
+	margin: 0 auto; 
 }
 
 .col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2,
@@ -530,8 +539,8 @@ a.btn.disabled, fieldset[disabled] a.btn {
 	min-height: 1px;
 	padding-right: 15px;
 	padding-left: 15px;
-    font-size: 15px;
-    font-family: Sans-serif;
+	font-size: 15px;
+	font-family: Sans-serif;
 }
 
 .form-control {
