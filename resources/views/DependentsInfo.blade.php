@@ -6,15 +6,19 @@
 {!! Html::script( asset('js/DependentsInfo.js') ) !!}
 
 @section('content')
-
-                	<div class="addDeps">
-                    	<a href="{{ url('/addDependent') }}">Add Dependent</a>
-                    </div>
+<div class="form-data-div">
+                	
                     @if (count($dependents) == 0)
-                    	There are no dependents under you!
+                    	<div class="warn-msg">There are no dependents under you!</div><br><div>Click here to add a new dependent:<a href="{{ url('/addDependent') }}" class="new-link">Add Dependent</a></div> 
                     @else
-                    	<form class="form-horizontal-deps" role="form" method="POST" action="{{ url('/deleteDependents') }}">
+                    	
+                    	<form class="visa-form" role="form" method="POST" action="{{ url('/deleteDependents') }}">
                     		{!! csrf_field() !!}
+                    		
+                    		<button type="submit" class="button button-select">
+                                <i class="fa fa-btn fa-user"></i>Delete Selected
+                            </button>
+                            <a href="{{ url('/addDependent') }}" class="button button-select">Add Dependent</a>
 	                    	<div class="deps-row">
 	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="dependents_All" id="selectall" value="All"> Select All</div>
 	                			<div class="deps-row-value depsHeader">First Name</div>
@@ -35,9 +39,8 @@
 	                    		</div>
 	                    	@endforeach
 	                    	<br/>
-	                    	<button type="submit" class="btn btn-primary">
-                                <i class="fa fa-btn fa-user"></i>Delete Selected
-                            </button>
+	                    	
+                    </form>
                     @endif
-
+</div>
 @endsection

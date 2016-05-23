@@ -7,8 +7,8 @@
 {!! Html::style( asset('css/framework/jquery-ui.css') ) !!}
 
 @section('content')
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/addDependent') }}">
+	<div class="form-data-div">
+                    <form class="visa-form" role="form" method="POST" action="{{ url('/addDependent') }}">
                     	<h2>Add Dependent Information</h2>
                         {!! csrf_field() !!}
 
@@ -58,16 +58,17 @@
                             <label class="col-md-4 control-label">Relationship Type</label>
 
                             <div class="col-md-6">
-                                {!! Form::select('relationshipType', $relationshipTypes, null, array('class' => 'form-control')) !!}
+                                {!! Form::select('relationshipType', $relationshipTypes, null, array('class' => 'select')) !!}
                             </div>
                         </div>
 
                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button">
                                     <i class="fa fa-btn fa-user"></i>Add Dependent
                                 </button>
                             </div>
                         </div>
                     </form>
+      </div>
 @endsection

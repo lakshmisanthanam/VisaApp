@@ -13,6 +13,7 @@
 	word-break: break-all;
 	/*line-height: 13em; */
 	border: 1px solid;
+    border-color: #000;	
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
@@ -27,7 +28,7 @@
 }
 
 .depsHeader {
-	background: #7D1935;
+	background: #5F5F5F;
 	font-weight: bold;
 	color: #FFF;
 	font-family: Arial, Helvetica, sans-serif;

@@ -4,53 +4,69 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <title>VisaApp</title>
-
-<!-- Fonts -->
-<link
-	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css"
-	rel='stylesheet' type='text/css'>
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700"
-	rel='stylesheet' type='text/css'>
-
-<!-- Styles -->
-<!--     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"> -->
-<!--     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}} -->
 <link href="/css/AppLayout.css" rel='stylesheet' type='text/css'>
-
 </head>
 <body>
-	<div id="app-layout">
-		<div id="header">
-			<img alt="Appnovation Technologies" src="/images/logo.svg" class="logo-img">
-			<span class="header-txt">VisaApp</span>
-		</div>
-		<div id="container">
-			<div id="navbar">
-				
-				@if (Auth::guest())
-					<ul class="nav-menu-list">
-						<li><a href="{{ url('/login') }}">Login</a></li>
-						<li><a href="{{ url('/register') }}">Register</a></li>
-					</ul>
-				@else
-					<ul class="nav-menu-list">
-						<li><a href="{{ url('/logout') }}">My Account</a></li>
-						<li><a href="{{ url('/dependentsInfo') }}">Dependents</a></li>
-						<li><a href="{{ url('/visaInfo') }}">Visa Info</a></li>
-						<li><a href="{{ url('/visaDocuments') }}">Digital Docs</a></li>
-						<li><a href="{{ url('/help') }}">Help</a></li>
-						<li><a href="{{ url('/logout') }}">Logout</a></li>
-					</ul>
-				@endif
-				
+	<nav class="navbar navbar-fixed-top">
+	@if (Auth::guest())
+		<a href="{{ url('/login') }}" class="NavPrimary-link">Login</a>
+	@else 
+		Welcome {{ Auth::user()->name }}
+	@endif
+	</nav>
+	<div class="container">
+		<header>
+			<div class="Header-logo">
+				<a href="/"> <img class="Header-logo-img" src="/images/logo.svg"
+					alt="Appno Visa">
+				</a>
 			</div>
-			<div id="content">
-				@yield('content')
+			<div class="header-text">Appno VISA</div>
+		</header>
+		<div id="content">
+			<div id="container-content">
+				<div id="container-nav">
+					<div id="nav-col">
+						@if (Auth::guest())
+						<nav class="Header-navPrimry NavPrimary">
+							<ul class="NavPrimary-items">
+								<li class="NavPrimary-item"><a href="{{ url('/login') }}"
+									class="NavPrimary-link">Login</a></li>
+								<li class="NavPrimary-item"><a href="{{ url('/register') }}"
+									class="NavPrimary-link">Register</a></li>
+							</ul>
+						</nav>
+						@else
+						<nav class="Header-navPrimry NavPrimary">
+							<ul class="NavPrimary-items">
+								<li class="NavPrimary-item"><a href="{{ url('/logout') }}"
+									class="NavPrimary-link">My Account</a></li>
+								<li class="NavPrimary-item"><a
+									href="{{ url('/dependentsInfo') }}" class="NavPrimary-link">Dependents</a></li>
+								<li class="NavPrimary-item"><a href="{{ url('/visaInfo') }}"
+									class="NavPrimary-link">Visa Info</a></li>
+								<li class="NavPrimary-item"><a
+									href="{{ url('/visaDocuments') }}" class="NavPrimary-link">Digital
+										Docs</a></li>
+								<li class="NavPrimary-item"><a href="{{ url('/help') }}"
+									class="NavPrimary-link">Help</a></li>
+								<li class="NavPrimary-item"><a href="{{ url('/logout') }}"
+									class="NavPrimary-link">Logout</a></li>
+							</ul>
+						</nav>
+						@endif
+					</div>
+					<div id="content-col">
+						<div class="content-data">
+							@yield('content')
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<div id="footer">&copy; Appnovation Technologies</div>
 	</div>
+
 </body>
 </html>

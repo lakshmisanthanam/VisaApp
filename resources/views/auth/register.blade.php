@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+
+<div class="form-data-div">
+                    <form class="visa-form" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -62,10 +64,11 @@
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button">
                                     <i class="fa fa-btn fa-user"></i>Register
                                 </button>
                             </div>
                         </div>
                     </form>
+    </div>
 @endsection

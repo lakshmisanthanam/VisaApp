@@ -6,13 +6,11 @@
 
 @section('content')
 
-                    <div class="addVisaInfo">
-                        <a href="{{ url('/addVisaInfo') }}">Add VISA Info</a>
-                    </div>
+                    <div class="form-data-div">
                     @if (count($visaInfos) == 0)
-                        There are no VISA details available for you or your dependents!
+                        <div class="warn-msg">There are no VISA details available for you!</div><br><div>Click here to add VISA information:<a href="{{ url('/addVisaInfo') }}" class="new-link">Add VISA Info</a></div>
                     @endif
-
+</div>
 
 
 @endsection

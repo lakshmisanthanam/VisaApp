@@ -8,10 +8,11 @@
 {!! Html::style( asset('css/AddVisaInfo.css') ) !!}
 
 @section('content')
-
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/addVisaInfo') }}">
+	<div class="form-data-div">
+                    <form class="visa-form" role="form" method="POST" action="{{ url('/addVisaInfo') }}">
                         {!! csrf_field() !!}
-
+						<h2>Add VISA Information</h2>
+						
                         <div class="form-group{{ $errors->has('visa_country') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">VISA Country</label>
 
@@ -95,10 +96,11 @@
 
                        <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="button">
                                     <i class="fa fa-btn fa-user"></i>Add Visa Info
                                 </button>
                             </div>
                         </div>
                     </form>
+    </div>
 @endsection
