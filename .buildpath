@@ -15,13 +15,16 @@
 	<buildpathentry kind="src" path="vendor/sebastian/version/src"/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 	<buildpathentry kind="src" path="vendor/phpunit/phpunit/src"/>
+	<buildpathentry kind="src" path="vendor/doctrine/cache/lib/Doctrine/Common/Cache"/>
 	<buildpathentry kind="src" path="vendor/dnoegel/php-xdg-base-dir/src"/>
 	<buildpathentry kind="src" path="vendor/phpunit/php-file-iterator/src"/>
 	<buildpathentry kind="src" path="vendor/mockery/mockery/library"/>
+	<buildpathentry kind="src" path="vendor/doctrine/dbal/lib"/>
 	<buildpathentry kind="src" path="vendor/symfony/css-selector"/>
 	<buildpathentry kind="src" path="vendor/symfony/debug"/>
 	<buildpathentry kind="src" path="vendor/symfony/polyfill-mbstring"/>
 	<buildpathentry kind="src" path="database"/>
+	<buildpathentry kind="src" path="vendor/doctrine/collections/lib"/>
 	<buildpathentry kind="src" path="vendor/phpunit/php-timer/src"/>
 	<buildpathentry kind="src" path="vendor/symfony/process"/>
 	<buildpathentry kind="src" path="vendor/psy/psysh/src/Psy"/>
@@ -30,6 +33,7 @@
 	<buildpathentry kind="src" path="vendor/phpunit/php-token-stream/src"/>
 	<buildpathentry kind="src" path="vendor/symfony/translation"/>
 	<buildpathentry kind="src" path="vendor/composer"/>
+	<buildpathentry kind="src" path="vendor/doctrine/common/lib/Doctrine/Common"/>
 	<buildpathentry kind="src" path="vendor/psr/log"/>
 	<buildpathentry kind="src" path="vendor/symfony/finder"/>
 	<buildpathentry kind="src" path="vendor/doctrine/instantiator/src/Doctrine/Instantiator"/>
@@ -37,6 +41,7 @@
 	<buildpathentry kind="src" path="vendor/sebastian/exporter/src"/>
 	<buildpathentry kind="src" path="vendor/phpunit/php-text-template/src"/>
 	<buildpathentry kind="src" path="app"/>
+	<buildpathentry kind="src" path="vendor/doctrine/annotations/lib"/>
 	<buildpathentry kind="src" path="vendor/jakub-onderka/php-console-highlighter/src"/>
 	<buildpathentry kind="src" path="vendor/league/flysystem/src"/>
 	<buildpathentry kind="src" path="vendor/phpunit/php-code-coverage/src"/>
@@ -55,6 +60,7 @@
 	<buildpathentry kind="src" path="vendor/jakub-onderka/php-console-color/src"/>
 	<buildpathentry kind="src" path="vendor/phpunit/phpunit-mock-objects/src"/>
 	<buildpathentry kind="src" path="vendor/sebastian/global-state/src"/>
+	<buildpathentry kind="src" path="vendor/doctrine/lexer/lib"/>
 	<buildpathentry kind="src" path="vendor/sebastian/environment/src"/>
 	<buildpathentry kind="src" path="vendor/sebastian/recursion-context/src"/>
 	<buildpathentry kind="src" path="vendor/swiftmailer/swiftmailer/lib"/>

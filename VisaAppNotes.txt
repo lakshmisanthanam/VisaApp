@@ -201,6 +201,22 @@ Try php artisan migrate:refresh or migrate:reset and then do the migration again
 If it still complain, go to "migrations" table and delete the entry for the migration file that you want to run.
 
 
+############################################################################################################################################
+##### SECTION 6
+#####
+##### Migration Tips
+##### 
+##### End of Section 5: 
+############################################################################################################################################
+
+To create a migration:
+php artisan make:migration create_xxx_table
+
+To run a migration:
+php artisan migrate
+
+To rollback migration:
+php artisan migrate:rollback
 
 
 
