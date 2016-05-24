@@ -1,24 +1,56 @@
 @extends('layouts.app')
 
+{!! Html::script( asset('js/framework/jquery-1.12.2.min.js') ) !!}
+{!! Html::script( asset('js/framework/jquery-ui.min.js') ) !!}
+{!! Html::script( asset('js/register.js') ) !!}
+{!! Html::style( asset('css/framework/jquery-ui.css') ) !!}
+
 @section('content')
 
 <div class="form-data-div">
                     <form class="visa-form" role="form" method="POST" action="{{ url('/register') }}">
                         {!! csrf_field() !!}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label class="col-md-4 control-label">Name</label>
+                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">First Name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}">
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('first_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('first_name') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
+                        
+                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Last Name</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}">
+
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('last_name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <div class="form-group{{ $errors->has('date_of_birth') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Date Of Birth</label>
+
+                            <div class="col-md-6">
+								<input type="text" class="form-control" name="date_of_birth" value="" id="date_of_birth_picker">
+                                @if ($errors->has('date_of_birth'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('date_of_birth') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>                        
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">E-Mail Address</label>

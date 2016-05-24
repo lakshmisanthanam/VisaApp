@@ -12,7 +12,7 @@
 	@if (Auth::guest())
 		<a href="{{ url('/login') }}" class="NavPrimary-link">Login</a>
 	@else 
-		Welcome {{ Auth::user()->name }}
+		Welcome <span id="username-text">{{ Auth::user()->first_name . ' ' . Auth::user()->last_name}}</span>
 	@endif
 	</nav>
 	<div class="container">

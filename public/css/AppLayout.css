@@ -16,6 +16,11 @@ body {
 	box-sizing: border-box;
 }
 
+#username-text {
+	font-weight: 500;
+	color: #34ECC6;
+}
+
 .navbar-fixed-top {
 	top: 0;
 	border-width: 0 0 1px;
