@@ -246,7 +246,7 @@ header {
 	background-color: #4CAF50;
 	color: white;
 	padding: 12px 20px;
-	margin: 14px 0 8px 0;
+	margin: 14px 10px 8px 0;
 	display: inline-block;
 	border: none;
 	border-radius: 4px;
@@ -272,13 +272,14 @@ header {
 .button-select {
 	width: 15%;
 	text-decoration: none !important;
+	height: 60px;
 	/*float: left;
 	margin: 2px;*/
 }
 
 .button-select-float {
 	float: left;
-	margin: 2px;
+	/*margin: 2px;*/
 }
 
 a:hover {
