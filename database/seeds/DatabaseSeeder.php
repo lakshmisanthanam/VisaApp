@@ -17,7 +17,8 @@ class DatabaseSeeder extends Seeder
 
     	//$this->call(RelationshipCategory::class);
     	//$this->call(CountriesSeeder::class);
-    	$this->call(VisaCategoriesSeeder::class);
+    	//$this->call(VisaCategoriesSeeder::class);
+        $this->call(DigitalDocsTypesSeeder::class);
 
     	Model::reguard();
     }

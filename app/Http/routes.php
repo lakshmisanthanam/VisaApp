@@ -45,6 +45,15 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/myAccount', 'AccountsController@getMyAccount');
 
     Route::post('/myAccount', 'AccountsController@saveMyAccount');
+
+    Route::get('/listDigitalDocs', 'FilesController@listDigitalDocs');
+
+    Route::get('/addDigitalDoc', 'FilesController@showAddDigitalDocs');
+
+    Route::post('/addDigitalDoc', 'FilesController@addDigitalDoc'); 
+
+    Route::post('/deleteDigitalDocs', 'FilesController@deleteDigitalDocs'); 
+
 });
 
 Event::listen('illuminate.query', function($query)

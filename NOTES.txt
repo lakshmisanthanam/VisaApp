@@ -186,9 +186,31 @@ DB::listen(function($query) {
 Log::info(print_r($input, true));
 
 
+############################################################################################################################################
+##### SECTION 5
+#####
+##### File Handling in Laravel
+##### 
+##### End of Section 5: 
+############################################################################################################################################
 
+1. Run below commands.
 
+php artisan make:controller FilesController
+php artisan make:model DigitalDoc
+php artisan make:migration create_digital_docs_table --create=digital_docs
 
+2. At this point create the needed columns in the migration script.
+
+To add a BLOB column: $table->binary('column_name');
+
+3. Run below commands.
+php artisan migrate
+
+4. DB Seed Commands
+php artisan make:seeder DigitalDocsTypesSeeder
+# Update Database Seeder
+php artisan db:seed
 
 
 

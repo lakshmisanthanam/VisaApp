@@ -47,10 +47,8 @@
 								<li class="NavPrimary-item"><a href="{{ url('/visaInfo') }}"
 									class="NavPrimary-link">Visa Info</a></li>
 								<li class="NavPrimary-item"><a
-									href="{{ url('/visaDocuments') }}" class="NavPrimary-link">Digital
+									href="{{ url('/listDigitalDocs') }}" class="NavPrimary-link">Digital
 										Docs</a></li>
-								<li class="NavPrimary-item"><a href="{{ url('/help') }}"
-									class="NavPrimary-link">Help</a></li>
 								<li class="NavPrimary-item"><a href="{{ url('/logout') }}"
 									class="NavPrimary-link">Logout</a></li>
 							</ul>
