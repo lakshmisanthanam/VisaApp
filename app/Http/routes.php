@@ -54,6 +54,10 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::post('/deleteDigitalDocs', 'FilesController@deleteDigitalDocs'); 
 
+    Route::get('digitalDoc/get/{filename}', [
+        'as' => 'getDocument', 
+        'uses' => 'FilesController@getDocument']);
+
 });
 
 Event::listen('illuminate.query', function($query)

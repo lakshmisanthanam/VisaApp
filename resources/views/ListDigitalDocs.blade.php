@@ -33,7 +33,7 @@
 	                    			<div class="deps-row-value depsCkbox">
 	                    				{!! Form::checkbox('digitalDocs_grp[]', $digitalDoc -> id, null, array('class' => 'dep-checkbox')) !!}
 	                    			</div>
-	                    			<div class="deps-row-value">{{ $digitalDoc-> file_name }}</div>
+	                    			<div class="deps-row-value"><a href="{{route('getDocument', $digitalDoc->id)}}">{{ $digitalDoc-> file_name }}</a></div>
 	                    			<div class="deps-row-value">{{ $digitalDoc-> mime_type }}</div>
 	                    			<div class="deps-row-value">{{ $digitalDoc-> file_size }}</div>
 	                    			<div class="deps-row-value">{{ $digitalDoc-> updated_at }}</div>

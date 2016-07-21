@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Input;
 use Validator;
 use Redirect;
 use Session;
+use Illuminate\Http\Response;
 
 class FilesController extends Controller
 {
@@ -89,7 +90,7 @@ class FilesController extends Controller
 			// checking file is valid.
     		if (Input::file('file_data')->isValid()) {
 
-    			$fileName = Input::file('file_data')->getClientOriginalName();
+    	  $fileName = Input::file('file_data')->getClientOriginalName();
 				$fileSize = Input::file('file_data')->getSize();
 				$mimeType = Input::file('file_data')->getMimeType();
 
@@ -143,5 +144,15 @@ class FilesController extends Controller
    		return View::make('ListDigitalDocs')
    			->with('digitalDocs', $digitalDocs)
    			->with('statusMsg', $statusMsg);
+    }
+
+    public function getDocument($id){
+  
+      $entry = DigitalDoc::find($id);
+
+      Log::info('Log File Info:' . print_r($entry, true));
+ 
+      return (new Response($entry->file_contents, 200))
+              ->header('Content-Type', $entry->mime_type);
     }
 }
