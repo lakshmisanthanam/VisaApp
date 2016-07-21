@@ -37,6 +37,14 @@ Route::group(['middleware' => 'web'], function () {
 	Route::get('/visaInfo', 'VisaInfoController@visaInfo');
 
     Route::get('/addVisaInfo', 'VisaInfoController@showAddVisaInfo');
+
+    Route::post('/addVisaInfo', 'VisaInfoController@saveVisaInfo');
+
+    Route::post('/deleteVisaInfos', 'VisaInfoController@deleteVisaInfos');  
+    
+    Route::get('/myAccount', 'AccountsController@getMyAccount');
+
+    Route::post('/myAccount', 'AccountsController@saveMyAccount');
 });
 
 Event::listen('illuminate.query', function($query)

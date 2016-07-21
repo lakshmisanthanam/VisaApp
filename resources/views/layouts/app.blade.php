@@ -40,7 +40,7 @@
 						@else
 						<nav class="Header-navPrimry NavPrimary">
 							<ul class="NavPrimary-items">
-								<li class="NavPrimary-item"><a href="{{ url('/logout') }}"
+								<li class="NavPrimary-item"><a href="{{ url('/myAccount') }}"
 									class="NavPrimary-link">My Account</a></li>
 								<li class="NavPrimary-item"><a
 									href="{{ url('/dependentsInfo') }}" class="NavPrimary-link">Dependents</a></li>

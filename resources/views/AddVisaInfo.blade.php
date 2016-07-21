@@ -71,6 +71,34 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('place_of_issue') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Place of Issue</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="place_of_issue" value="{{ old('place_of_issue') }}">
+
+                                @if ($errors->has('place_of_issue'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('place_of_issue') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('issued_country') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Issued Country</label>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" name="issued_country" value="{{ old('issued_country') }}">
+
+                                @if ($errors->has('issued_country'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('issued_country') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('for_dependents') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Dependents or Yourself</label>
 

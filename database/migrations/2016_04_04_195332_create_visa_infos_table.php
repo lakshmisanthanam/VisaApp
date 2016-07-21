@@ -20,8 +20,9 @@ class CreateVisaInfosTable extends Migration
             $table->string('expiry_date');
             $table->string('issued_on');
             $table->string('place_of_issue');
-            $table->string('issued_country');
+            $table->string('issued_in_country');
             $table->string('for_dependents');
+            $table->string('visa_country_id');
             $table->integer('dependent_id')->unsigned()->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

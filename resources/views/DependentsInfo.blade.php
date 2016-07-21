@@ -11,14 +11,16 @@
                     @if (count($dependents) == 0)
                     	<div class="warn-msg">There are no dependents under you!</div><br><div>Click here to add a new dependent:<a href="{{ url('/addDependent') }}" class="new-link">Add Dependent</a></div> 
                     @else
-                    	
+                    	@if ($statusMsg != '') 
+                    		<div class="warn-msg">{{ $statusMsg }}</div>
+                    	@endif
                     	<form class="visa-form" role="form" method="POST" action="{{ url('/deleteDependents') }}">
                     		{!! csrf_field() !!}
                     		
-                    		<button type="submit" class="button button-select">
+                    		<button type="submit" class="button button-select button-select-float">
                                 <i class="fa fa-btn fa-user"></i>Delete Selected
                             </button>
-                            <a href="{{ url('/addDependent') }}" class="button button-select">Add Dependent</a>
+                            <a href="{{ url('/addDependent') }}" class="button button-select button-select-float">Add Dependent</a>
 	                    	<div class="deps-row">
 	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="dependents_All" id="selectall" value="All"> Select All</div>
 	                			<div class="deps-row-value depsHeader">First Name</div>

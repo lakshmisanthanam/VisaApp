@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\DependentsInfo;
 use App\Relationship;
 
+use \Exception;
 use Log;
 use Auth;
 use View;
@@ -53,7 +54,7 @@ class DependentsController extends Controller
    		foreach ($dependents as $dependent) {
    			Log::info('Dependent Category:'.$dependent->relationship);
    		}
-   		return View::make('DependentsInfo')->with('dependents', $dependents);
+   		return View::make('DependentsInfo')->with('dependents', $dependents)->with('statusMsg', '');
     }
 
     public function showAddDependent()
@@ -83,7 +84,7 @@ class DependentsController extends Controller
    		foreach ($dependents as $dependent) {
    			Log::info('Dependent Category:'.$dependent->relationship);
    		}
-   		return View::make('DependentsInfo')->with('dependents', $dependents);
+   		return View::make('DependentsInfo')->with('dependents', $dependents)->with('statusMsg', 'Dependent Created Successfully');
     }
 
     public function deleteDependents() {
@@ -94,8 +95,15 @@ class DependentsController extends Controller
     	Log::info(print_r($input, true));
     	Log::info(print_r($selectedDependents, true));
 
+      $statusMsg = 'One or more dependents deleted successfully!';
+
     	foreach ($selectedDependents as $dependentId) {
-    		DependentsInfo::destroy($dependentId);
+        try {
+            DependentsInfo::destroy($dependentId);
+        } catch (Exception $e) {
+            $statusMsg = 'Unable to delete few dependents!';
+            Log::error($e);
+        }
     	}
     	
     	$dependents = DependentsInfo::where('user_id', $user_id)->get();
@@ -103,6 +111,6 @@ class DependentsController extends Controller
    		foreach ($dependents as $dependent) {
    			Log::info('Dependent Category:'.$dependent->relationship);
    		}
-   		return View::make('DependentsInfo')->with('dependents', $dependents);
+   		return View::make('DependentsInfo')->with('dependents', $dependents)->with('statusMsg', $statusMsg);
     }
 }
