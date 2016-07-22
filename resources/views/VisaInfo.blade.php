@@ -13,7 +13,9 @@
                         <div class="warn-msg">There are no VISA details available for you!</div><br><div>Click here to add VISA information:<a href="{{ url('/addVisaInfo') }}" class="new-link">Add VISA Info</a></div>
 
                     @else
-						
+						@if ($statusMsg != '') 
+                    		<div class="warn-msg">{{ $statusMsg }}</div>
+                    	@endif
 						<form class="visa-form info-form" role="form" method="POST" action="{{ url('/deleteVisaInfos') }}">
                     		{!! csrf_field() !!}
                     		

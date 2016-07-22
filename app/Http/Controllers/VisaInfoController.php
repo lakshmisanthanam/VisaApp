@@ -41,7 +41,7 @@ class VisaInfoController extends Controller
    		$visaInfos = VisaInfo::where('user_id', $user_id)->get();
    		Log::info('Retrieved Visa Info for user id: '.$user_id. ', With Data:'.print_r($visaInfos, true));
    		
-   		return View::make('VisaInfo')->with('visaInfos', $visaInfos);
+   		return View::make('VisaInfo')->with('visaInfos', $visaInfos)->with('statusMsg', '');
     }
 
     public function showAddVisaInfo()
@@ -91,24 +91,28 @@ class VisaInfoController extends Controller
       $visaInfos = VisaInfo::where('user_id', $user_id)->get();
       Log::info('Retrieved Visa Info for user id: '.$user_id. ', With Data:'.print_r($visaInfos, true));
       
-      return View::make('VisaInfo')->with('visaInfos', $visaInfos);
+      return View::make('VisaInfo')->with('visaInfos', $visaInfos)->with('statusMsg', 'VISA entry added successfully');
     }
 
     public function deleteVisaInfos() {
       $user_id = Auth::user()->id;
       $input = Input::all(); 
-      $visaInfos = $input['visaInfos_grp'];
-
-      $statusMsg = 'One or more Visa Informations deleted successfully!';
-
-      foreach ($visaInfos as $visaId) {
-        try {
-            VisaInfo::destroy($visaId);
-        } catch (Exception $e) {
-            $statusMsg = 'Unable to delete few Visa Information!';
-            Log::error($e);
-        }
+      $statusMsg = '';
+      if (!isset($input['visaInfos_grp'])) {
+          $statusMsg = 'No entries were selected for deletion';
+      } else {
+          $visaInfos = $input['visaInfos_grp'];
+          $statusMsg = 'One or more Visa Information deleted successfully!';
+          foreach ($visaInfos as $visaId) {
+              try {
+                  VisaInfo::destroy($visaId);
+              } catch (Exception $e) {
+                  $statusMsg = 'Unable to delete few Visa Information!';
+                  Log::error($e);
+              }
+          }
       }
+      
       
       // CODE TO RETRIEVE VISA INFORMATIOn
 

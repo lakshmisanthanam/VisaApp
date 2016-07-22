@@ -4,6 +4,7 @@ $(document).ready(
 		console.log('document ready!');
 
 	    $("#edit-link").click(function(e){
+	    	console.log ('Edit Link Clicked' + e.target + "..." + e.type);
 	    	$("input").prop('disabled', false);
 	    	$("input:text:visible:first").focus();
 	    	$("#save-cancel").css('display', 'block');
@@ -14,6 +15,7 @@ $(document).ready(
 			$("input").prop('disabled', true);
 	    	$("#save-cancel").css('display', 'none');
 	    	$("#edit-link").css('display', 'block');
+	    	$(".help-block").css('display', 'none');
 		});
 		
 		$("#datepicker").datepicker({

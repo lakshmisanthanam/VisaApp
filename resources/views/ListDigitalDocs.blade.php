@@ -11,7 +11,9 @@
                         <div class="warn-msg">There are no digital documents for you!</div><br><div>Click here to add Digital Doc:<a href="{{ url('/addDigitalDoc') }}" class="new-link">Add Document</a></div>
 
                     @else
-						
+						@if ($statusMsg != '') 
+                    		<div class="warn-msg">{{ $statusMsg }}</div>
+                    	@endif
 						<form class="info-form visa-form" role="form" method="POST" action="{{ url('/deleteDigitalDocs') }}">
                     		{!! csrf_field() !!}
                     		
