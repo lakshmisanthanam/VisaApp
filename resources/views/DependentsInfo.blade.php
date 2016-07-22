@@ -27,6 +27,7 @@
 	                			<div class="deps-row-value depsHeader">Last Name</div>
 	                			<div class="deps-row-value depsHeader">Date Of Birth</div>
 	                			<div class="deps-row-value depsHeader">Relationship</div>
+	                			<div class="deps-row-value depsHeader">Edit</div>
 	                		</div>
 	                    	@foreach ($dependents as $dependent)
 	                    		<div class="deps-row">
@@ -38,6 +39,7 @@
 	                    			<div class="deps-row-value">{{ $dependent-> last_name }}</div>
 	                    			<div class="deps-row-value">{{ $dependent-> date_of_birth }}</div>
 	                    			<div class="deps-row-value">{{ $dependent-> relationship -> relation_description }}</div>
+	                    			<div class="deps-row-value"><a href="{{route('showEditDependent', $dependent->id)}}">Edit</a></div>
 	                    		</div>
 	                    	@endforeach
 	                    	<br/>

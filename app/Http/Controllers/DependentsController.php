@@ -132,4 +132,50 @@ class DependentsController extends Controller
      		}
      		return View::make('DependentsInfo')->with('dependents', $dependents)->with('statusMsg', $statusMsg);
     }
+
+    public function showEditDependent($id) {
+        $user_id = Auth::user()->id;
+        $dependent = DependentsInfo::find($id);
+
+        $relationships = ['' => ''] + Relationship::lists('relation_description', 'id')->toArray();
+      
+        return View::make('EditDependent')
+            ->with('dependent', $dependent)
+            ->with('relationshipTypes', $relationships);
+    }
+
+    public function updateDependent() {
+        $user_id = Auth::user()->id;
+        $input = Input::all(); 
+        $statusMsg = '';
+
+
+        $rules = array('first_name' => 'required',
+                     'last_name' => 'required',
+                     'date_of_birth' => 'required',
+                     'relationshipType' => 'required');
+
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+            // send back to the page with the input data and errors
+            return Redirect::to('/dependents/edit/'. $input['id'])->withInput()->withErrors($validator);
+        } else {
+
+             $relationshipType = $input['relationshipType'];
+             $relationship = Relationship::find($relationshipType);
+
+             $dependent = DependentsInfo::find($input['id']);
+             $dependent->user_id = $user_id;
+             $dependent->first_name = $input['first_name'];
+             $dependent->last_name = $input['last_name'];
+             $dependent->date_of_birth = $input['date_of_birth'];
+             $dependent->dependent_cat_id = $relationship->id;
+             $dependent->save();
+
+             $dependents = DependentsInfo::where('user_id', $user_id)->get();
+             
+             return View::make('DependentsInfo')->with('dependents', $dependents)->with('statusMsg', 'Dependent Updated Successfully');
+        }
+    }
 }

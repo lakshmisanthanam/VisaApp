@@ -58,6 +58,12 @@ Route::group(['middleware' => 'web'], function () {
         'as' => 'getDocument', 
         'uses' => 'FilesController@getDocument']);
 
+    Route::get('dependents/edit/{id}', [
+        'as' => 'showEditDependent', 
+        'uses' => 'DependentsController@showEditDependent']);
+
+    Route::post('dependents/edit/save', 'DependentsController@updateDependent');
+
 });
 
 Event::listen('illuminate.query', function($query)
