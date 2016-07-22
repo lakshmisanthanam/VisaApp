@@ -15,6 +15,7 @@
 	border: 1px solid;
     border-color: #000;	
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: 12px;
 }
 
 .depsCkbox {
@@ -28,12 +29,12 @@
 }
 
 .depsHeader {
-	background: #EFA795;
+	background: #8a230a;
 	font-weight: bold;
-	color: #000;
+	color: #fff;
 	font-family: Arial, Helvetica, sans-serif;
 	font-style: initial;
-	font-size: medium;
+	font-size: 12px;
 }
 
 .form-horizontal-deps {

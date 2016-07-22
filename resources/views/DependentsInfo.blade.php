@@ -14,7 +14,7 @@
                     	@if ($statusMsg != '') 
                     		<div class="warn-msg">{{ $statusMsg }}</div>
                     	@endif
-                    	<form class="visa-form" role="form" method="POST" action="{{ url('/deleteDependents') }}">
+                    	<form class="visa-form info-form" role="form" method="POST" action="{{ url('/deleteDependents') }}">
                     		{!! csrf_field() !!}
                     		
                     		<button type="submit" class="button button-select button-select-float">

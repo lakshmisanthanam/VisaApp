@@ -10,7 +10,7 @@
 
 <div class="form-data-div">
 	<div id="accounts-header"><h2>Account Information</h2></div>
-	<form class="visa-form" role="form" method="POST" action="{{ url('/myAccount') }}">
+	<form class="info-form visa-form" role="form" method="POST" action="{{ url('/myAccount') }}">
 		{!! csrf_field() !!}
 
 		<div class="two-col-row">
@@ -29,12 +29,12 @@
 			<div class="cell-value header-cell">Date Of Birth</div>
 			<div class="cell-value"><input type="text" disabled="disabled" name="date_of_birth" value="{{ $user_data->date_of_birth }}" class="date-picker" id="datepicker"></div>
 		</div>
-		<a href="javascript:void(0);" class="button button-select" id="edit-link">Edit</a>
+		<a href="javascript:void(0);" class="button button-select button-edit" id="edit-link">Edit</a>
 		<div id="save-cancel">
-			<button type="submit" class="button button-select">
+			<button type="submit" class="button button-select button-edit">
                 <i class="fa fa-btn fa-user"></i>Save
             </button>
-			<a href="javascript:void(0);" class="button button-select" id="cancel-btn">Cancel</a>
+			<a href="javascript:void(0);" class="button button-select button-edit" id="cancel-btn">Cancel</a>
 		</div>
 	</form>
 </div>

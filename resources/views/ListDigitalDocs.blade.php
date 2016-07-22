@@ -12,7 +12,7 @@
 
                     @else
 						
-						<form class="visa-form" role="form" method="POST" action="{{ url('/deleteDigitalDocs') }}">
+						<form class="info-form visa-form" role="form" method="POST" action="{{ url('/deleteDigitalDocs') }}">
                     		{!! csrf_field() !!}
                     		
                     		<button type="submit" class="button button-select button-select-float">

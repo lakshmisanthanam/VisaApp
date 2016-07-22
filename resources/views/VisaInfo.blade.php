@@ -14,7 +14,7 @@
 
                     @else
 						
-						<form class="visa-form" role="form" method="POST" action="{{ url('/deleteVisaInfos') }}">
+						<form class="visa-form info-form" role="form" method="POST" action="{{ url('/deleteVisaInfos') }}">
                     		{!! csrf_field() !!}
                     		
                     		<button type="submit" class="button button-select button-select-float">
@@ -22,7 +22,7 @@
                             </button>
                             <a href="{{ url('/addVisaInfo') }}" class="button button-select button-select-float">Add Visa Info</a>
 	                    	<div class="deps-row">
-	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="visas_All" id="selectall" value="All"> Select All</div>
+	                			<div class="deps-row-value depsCkbox"><input type="checkbox" name="visas_All" id="selectall" value="All"> Select <br> All</div>
 	                			<div class="deps-row-value depsHeader">VISA Country</div>
 	                			<div class="deps-row-value depsHeader">VISA Category</div>
 	                			<div class="deps-row-value depsHeader">VISA Number</div>

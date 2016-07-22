@@ -17,7 +17,7 @@
                 <label class="col-md-4 control-label">Select Document</label>
 
                 <div class="col-md-6">
-                    {!! Form::file('file_data') !!}
+                    {!! Form::file('file_data', array('class' => 'form-control')) !!}
 
                     @if ($errors->has('file'))
                         <span class="help-block">
